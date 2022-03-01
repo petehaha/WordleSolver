@@ -26,7 +26,7 @@ The ordering of the letters does not matter.
 Lastly, the algorithm will provide a list of possible words that can be formed from the provided letters.
 The first few words are likely to be more helpful. 
 
-If you want more words, than the algorithm outputs the first time, you can input nothing at the first prompt and the algorithm
+If you want more words than the algorithm outputs the first time, you can input nothing at the first prompt and the algorithm
 will search for more words.
 
 The algorithm will repeat this process until find the correct word, at which point you can type "done" for the first
