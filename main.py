@@ -18,7 +18,7 @@ def rebalance(probs={}, numPasses=0):
 
     mostProbableKeys = sorted(letterProbabilites, key=letterProbabilites.get, reverse=True)
     if numPasses == 0:
-        topKeys = frozenset(mostProbableKeys[:15])  #
+        topKeys = frozenset(mostProbableKeys[:15])
     else:
         topKeys = frozenset(mostProbableKeys[:15+numPasses])
 
@@ -96,14 +96,12 @@ history = []
 numPasses = 0
 
 while(True):
-    word = list(input("Whats the result? Lowercase if wrong position, Uppercase if correct, Underscore if unknown."
+    word = list(input("Whats the result? Lowercase if wrong position, Uppercase if correct, Underscore if unknown. "
                       "If no words, hit enter and if finished, type done.\n"))
     if not word:
         numPasses, validatedList = getMoreWords(history, validatedList, numPasses)
-        print(numPasses)
-        print(validatedList)
         continue
-    elif word == "done":
+    elif word == list("done"):
         exit()
     else:
         pass
@@ -131,5 +129,6 @@ while(True):
         wordList = rebalance(probs, numPasses)
         numPasses, validatedList = validateWord(word, wordList, numPasses)
     random.shuffle(validatedList)
-    print(sorted(validatedList, key=lambda x: len(set(x)), reverse=True))
+
+    print("Possible words:", sorted(validatedList, key=lambda x: len(set(x)), reverse=True), "\n")
 
